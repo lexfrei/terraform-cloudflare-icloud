@@ -17,7 +17,7 @@ resource "cloudflare_record" "icloud_mx01" {
 
 resource "cloudflare_record" "icloud_mx02" {
   zone_id  = var.zone_id
-  name     = var.zone_id
+  name     = var.name
   content  = "mx02.mail.icloud.com"
   type     = "MX"
   priority = 10
@@ -33,14 +33,14 @@ resource "cloudflare_record" "icloud_signin" {
 
 resource "cloudflare_record" "icloud_txt01" {
   zone_id = var.zone_id
-  name    = var.zone_id
+  name    = var.name
   content = "v=spf1 include:icloud.com ~all"
   type    = "TXT"
 }
 
 resource "cloudflare_record" "icloud_txt02" {
   zone_id = var.zone_id
-  name    = var.zone_id
+  name    = var.name
   content = "apple-domain=${var.apple_domain}"
   type    = "TXT"
 }
