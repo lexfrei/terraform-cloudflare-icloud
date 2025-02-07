@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-resource "cloudflare_record" "icloud_mx01" {
+resource "cloudflare_dns_record" "icloud_mx01" {
   zone_id  = var.zone_id
   name     = var.name
   content  = "mx01.mail.icloud.com"
@@ -15,7 +15,7 @@ resource "cloudflare_record" "icloud_mx01" {
   priority = 10
 }
 
-resource "cloudflare_record" "icloud_mx02" {
+resource "cloudflare_dns_record" "icloud_mx02" {
   zone_id  = var.zone_id
   name     = var.name
   content  = "mx02.mail.icloud.com"
@@ -23,7 +23,7 @@ resource "cloudflare_record" "icloud_mx02" {
   priority = 10
 }
 
-resource "cloudflare_record" "icloud_signin" {
+resource "cloudflare_dns_record" "icloud_signin" {
   zone_id = var.zone_id
   name    = "sig1._domainkey"
   content = "sig1.dkim.${var.name}.at.icloudmailadmin.com"
@@ -31,14 +31,14 @@ resource "cloudflare_record" "icloud_signin" {
   proxied = false
 }
 
-resource "cloudflare_record" "icloud_txt01" {
+resource "cloudflare_dns_record" "icloud_txt01" {
   zone_id = var.zone_id
   name    = var.name
   content = "v=spf1 include:icloud.com ~all"
   type    = "TXT"
 }
 
-resource "cloudflare_record" "icloud_txt02" {
+resource "cloudflare_dns_record" "icloud_txt02" {
   zone_id = var.zone_id
   name    = var.name
   content = "apple-domain=${var.apple_domain}"
