@@ -12,3 +12,9 @@ variable "apple_domain" {
   description = "The value for the apple-domain TXT record, used for verifying domain ownership with Apple services."
   type        = string
 }
+
+variable "ttl" {
+  description = "Time to live for DNS records in seconds (default: 300)"
+  type        = number
+  default     = 300
+}

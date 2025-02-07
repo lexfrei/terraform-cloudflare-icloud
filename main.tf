@@ -13,6 +13,7 @@ resource "cloudflare_dns_record" "icloud_mx01" {
   content  = "mx01.mail.icloud.com"
   type     = "MX"
   priority = 10
+  ttl      = var.ttl
 }
 
 resource "cloudflare_dns_record" "icloud_mx02" {
@@ -21,6 +22,7 @@ resource "cloudflare_dns_record" "icloud_mx02" {
   content  = "mx02.mail.icloud.com"
   type     = "MX"
   priority = 10
+  ttl      = var.ttl
 }
 
 resource "cloudflare_dns_record" "icloud_signin" {
@@ -29,6 +31,7 @@ resource "cloudflare_dns_record" "icloud_signin" {
   content = "sig1.dkim.${var.name}.at.icloudmailadmin.com"
   type    = "CNAME"
   proxied = false
+  ttl     = var.ttl
 }
 
 resource "cloudflare_dns_record" "icloud_txt01" {
@@ -36,6 +39,7 @@ resource "cloudflare_dns_record" "icloud_txt01" {
   name    = var.name
   content = "v=spf1 include:icloud.com ~all"
   type    = "TXT"
+  ttl     = var.ttl
 }
 
 resource "cloudflare_dns_record" "icloud_txt02" {
@@ -43,4 +47,5 @@ resource "cloudflare_dns_record" "icloud_txt02" {
   name    = var.name
   content = "apple-domain=${var.apple_domain}"
   type    = "TXT"
+  ttl     = var.ttl
 }
