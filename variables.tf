@@ -14,7 +14,7 @@ variable "apple_domain" {
 }
 
 variable "ttl" {
-  description = "Time to live for DNS records in seconds (default: 300)"
+  description = "Time to live for DNS records in seconds (default: auto)"
   type        = number
-  default     = 300
+  default     = 1
 }
